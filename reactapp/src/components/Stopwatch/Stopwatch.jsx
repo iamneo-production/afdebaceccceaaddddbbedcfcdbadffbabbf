@@ -8,19 +8,19 @@ const mystyle = {
 };
 
 const Stopwatch = () => {
-  const [isRunning, setIsRunning] = useState(false);
-  const [isStarted, setIsStarted] = useState(false); // New state to track whether the timer is started or not
-  const [startTime, setStartTime] = useState(null);
-  const [timeElapsed, setTimeElapsed] = useState(0);
-  const [timerId, setTimerId] = useState(null);
-
-  const startTimer = () => {
-    setIsRunning(true);
-    if (!isStarted) {
-      setIsStarted(true);
-      setStartTime(Date.now());
-    }
-  };
+    const [isRunning, setIsRunning] = useState(false);
+    const [isStarted, setIsStarted] = useState(false);
+    const [startTime, setStartTime] = useState(null);
+    const [timeElapsed, setTimeElapsed] = useState(0);
+    const [timerId, setTimerId] = useState(null);
+  
+    const startTimer = () => {
+      setIsRunning(true);
+      if (!isStarted) {
+        setIsStarted(true);
+        setStartTime(Date.now() - timeElapsed); // Set startTime only once when starting the timer
+      }
+    };
 
   const pauseTimer = () => {
     setIsRunning(false);
@@ -39,18 +39,16 @@ const Stopwatch = () => {
   };
 
   useEffect(() => {
+    let timerId;
+  
     if (isRunning) {
-      setTimerId(setInterval(() => {
+      timerId = setInterval(() => {
         setTimeElapsed(Date.now() - startTime);
-      }, 10));
+      }, 10);
     }
-
-    return () => {
-      if (timerId) {
-        clearInterval(timerId);
-      }
-    };
-  }, [isRunning, startTime, timerId]);
+  
+    return () => clearInterval(timerId);
+  }, [isRunning, startTime]);
 
   const formatTime = (time) => {
     const minutes = Math.floor(time / 60000);
