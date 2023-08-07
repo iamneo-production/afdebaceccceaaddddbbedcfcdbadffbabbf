@@ -1,0 +1,80 @@
+h1 {
+  font-size: 6rem;
+  font-family: FF Sero Medium;
+}
+.stop-watch {
+  height: 70vh;
+  width: 70vw;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  border-style: solid;
+  border-width: 7px;
+  border-color: #54bde1;
+  border-radius: 3rem;
+  border-top-width: 6em;
+  border-bottom-width: 3rem;
+}
+.timer {
+  margin: 3rem 0;
+  width: 100%;
+  display: flex;
+  height: 12%;
+  justify-content: center;
+  align-items: center;
+}
+
+.digits {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 6rem;
+  color: black;
+}
+
+.mili-sec {
+  color: black;
+}
+.Control-Buttons {
+  margin: 3rem 0;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-grp {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.btn {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  width: 10vw;
+  height: 5vh;
+  border-radius: 5px;
+  margin: 0px 6px;
+  display: flex;
+  border: 3px solid grey;
+  border-top-color: #767676;
+  border-left-color: #767676;
+  border-right-color: #000000;
+  border-bottom-color: #000000;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: black;
+}
+
+.btn-one {
+  background-color: white;
+}
+.btn_hidden {
+  border-top-color: #d2d2d2;
+  border-left-color: #d2d2d2;
+  border-right-color: #d2d2d2;
+  border-bottom-color: #d2d2d2;
+  color: #d2d2d2;
+}
